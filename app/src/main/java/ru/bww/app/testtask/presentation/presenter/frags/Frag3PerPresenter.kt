@@ -1,13 +1,13 @@
 package ru.bww.app.testtask.presentation.presenter.frags
 
 import android.graphics.BitmapFactory
+import android.os.Bundle
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import okhttp3.ResponseBody
 import ru.bww.app.testtask.ThisApp
 import ru.bww.app.testtask.model.api_controller.AsyncTasksController
 import ru.bww.app.testtask.presentation.view.frags.Frag3PerView
-import ru.bww.app.testtask.ui.activs.MainActivity
 
 @InjectViewState
 class Frag3PerPresenter : MvpPresenter<Frag3PerView>(), AsyncTasksController.EmployeePhoto.IResult {
@@ -15,10 +15,11 @@ class Frag3PerPresenter : MvpPresenter<Frag3PerView>(), AsyncTasksController.Emp
     var hasResponse = false
     lateinit var response: ResponseBody
 
-    fun employeePhoto(emplId: String?) {
+    fun employeePhoto() {
         if (!hasResponse){
             viewState.showProgressBar()
-            AsyncTasksController.EmployeePhoto(this, emplId).execute(ThisApp.INSTANCE.getLoginPassword())
+            AsyncTasksController.EmployeePhoto(this, arguments?.getString("ID"))
+                .execute(ThisApp.INSTANCE.getLoginPassword())
         }
     }
 
@@ -33,15 +34,17 @@ class Frag3PerPresenter : MvpPresenter<Frag3PerView>(), AsyncTasksController.Emp
         viewState.showToast(errorMsg)
     }
 
-    lateinit var emplId: String
+    var arguments: Bundle? = null
 
-    fun setAndGetEmplId(emplId: String?): String {
+    fun setDataset(arguments: Bundle?) {
         when{
-            emplId != null -> {
-                this.emplId = emplId
-                return emplId
+            arguments != null -> {
+                this.arguments = arguments
+                viewState.setViewsValues(arguments)
             }
-            else -> return this.emplId
+            else -> {
+                viewState.setViewsValues(this.arguments!!)
+            }
         }
     }
 }

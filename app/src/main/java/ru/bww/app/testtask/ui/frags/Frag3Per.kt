@@ -20,23 +20,24 @@ class Frag3Per() : MvpAppCompatFragment(), Frag3PerView {
     @InjectPresenter
     lateinit var thisPresenter : Frag3PerPresenter
 
-    lateinit var INSTANCE : Frag3Per
-
     lateinit var pdLoading : PdLoading
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         ThisApp.INSTANCE.curFragmentName = BuildConfig.FRAG3_PER
-        this.INSTANCE = this
         return inflater.inflate(R.layout.frag3_per, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        thisPresenter.employeePhoto(thisPresenter.setAndGetEmplId(arguments?.getString("ID")))
-        tvEmployID.text = thisPresenter.emplId
-        tvEmployName.text = arguments?.getString("Name")
-        tvEmployTitle.text = arguments?.getString("Title")
-        tvEmployPhone.text = arguments?.getString("Phone")
-        tvEmployEmail.text = arguments?.getString("Email")
+        thisPresenter.setDataset(arguments)
+        thisPresenter.employeePhoto()
+    }
+
+    override fun setViewsValues(args: Bundle) {
+        tvEmployID.text = args?.getString("ID")
+        tvEmployName.text = args?.getString("Name")
+        tvEmployTitle.text = args?.getString("Title")
+        tvEmployPhone.text = args?.getString("Phone")
+        tvEmployEmail.text = args?.getString("Email")
         if(tvEmployID.text == null) tvEmployID.text = ""
         if(tvEmployName.text == null) tvEmployName.text = ""
         if(tvEmployTitle.text == null) tvEmployTitle.text = ""
