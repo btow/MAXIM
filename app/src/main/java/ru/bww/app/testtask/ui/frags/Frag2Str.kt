@@ -56,7 +56,7 @@ class Frag2Str : MvpAppCompatFragment(), Frag2StrView, AsyncTasksController.Comp
         val frag = Frag3Per()
             frag.arguments = params
         activity!!.supportFragmentManager.beginTransaction()
-            .replace(R.id.rlContent, frag)
+            .replace(R.id.rlContent, frag, BuildConfig.FRAG3_PER)
             .addToBackStack(BuildConfig.FRAG3_PER)
             .commit()
     }

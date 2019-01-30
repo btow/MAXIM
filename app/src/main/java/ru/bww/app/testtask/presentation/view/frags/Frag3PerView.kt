@@ -5,10 +5,11 @@ import android.os.Bundle
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.*
 
-@StateStrategyType(OneExecutionStateStrategy::class)
 interface Frag3PerView : MvpView {
-    fun showProgressBar()
+    @StateStrategyType(OneExecutionStateStrategy::class)
     fun closeProgressBsr()
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun showProgressBar()
     fun setUpImageBitmap(decodeStream: Bitmap?)
     fun showToast(errorMsg: String)
     fun setViewsValues(arguments: Bundle)

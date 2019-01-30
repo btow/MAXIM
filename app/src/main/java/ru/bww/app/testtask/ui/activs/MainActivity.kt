@@ -2,6 +2,7 @@ package ru.bww.app.testtask.ui.activs
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.view.WindowManager
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -59,13 +60,19 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showFragment(name: String) {
-        val fragment = Class.forName(
-            "ru.bww.app.testtask.ui.frags.${name}")
-            .newInstance() as Fragment
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.rlContent, fragment)
-            .addToBackStack(name)
-            .commit()
+        if (fragmentNotOpen(name)){
+            val fragment = Class.forName(
+                "ru.bww.app.testtask.ui.frags.${name}")
+                .newInstance() as Fragment
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.rlContent, fragment, name)
+                .addToBackStack(name)
+                .commit()
+        }
+    }
+
+    private fun fragmentNotOpen(name: String): Boolean {
+        return supportFragmentManager.findFragmentByTag(name) == null
     }
 
     override fun onBackPressed() {
