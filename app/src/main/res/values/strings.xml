@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Address book</string>
+    <string name="frag1_message">Enter your username and password to continue</string>
+    <string name="frag1_login">Login</string>
+    <string name="frag1_passw">Password</string>
+    <string name="frag1_input">INPUT</string>
+    <string name="frag1_atc_login_is_success">Log in is success</string>
+    <string name="frag3_employee_id">Employee id:</string>
+    <string name="frag3_employ_name">Name:</string>
+    <string name="frag3_employ_title">Title:</string>
+    <string name="frag3_employ_email" translatable="false">Email:</string>
+    <string name="frag3_employ_phone">Phone:</string>
+</resources>

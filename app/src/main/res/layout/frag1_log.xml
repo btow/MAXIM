@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context=".ui.frags.Frag1Log"
+>
+
+    <TextView
+        android:id="@+id/tvMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frag1_message"
+        android:textSize="18sp"
+        app:layout_constraintHeight_min="@dimen/min_btn_heigt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tilLogin"
+    />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/frag1_login"
+        app:layout_constraintTop_toBottomOf="@+id/tvMsg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tilPassw"
+        app:layout_constraintVertical_bias="0.9"
+    >
+        <EditText
+            android:id="@+id/etLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/min_btn_heigt"
+            android:inputType="text"
+            android:text="test_user"
+        />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilPassw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/frag1_passw"
+        app:layout_constraintTop_toBottomOf="@+id/tilLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mbtnInput"
+        app:layout_constraintVertical_bias="0.1"
+    >
+        <EditText
+            android:id="@+id/etPassw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/min_btn_heigt"
+            android:inputType="textPassword"
+            android:text="test_pass"
+        />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/mbtnInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frag1_input"
+        android:theme="@style/AppTheme.Button"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:minHeight="@dimen/min_btn_heigt"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/margin_top_btn"
+        tools:targetApi="o"
+    />
+
+
+</android.support.constraint.ConstraintLayout>

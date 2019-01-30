@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Адресная книга</string>
+    <string name="frag1_message">Для продолжения введите логин и пароль</string>
+    <string name="frag1_login">Логин</string>
+    <string name="frag1_passw">Пароль</string>
+    <string name="frag1_input">ВВОД</string>
+    <string name="frag1_atc_login_is_success">Вход выполнен</string>
+    <string name="frag3_employee_id">Идинтификатор:</string>
+    <string name="frag3_employ_name">ФИО:</string>
+    <string name="frag3_employ_title">Должность:</string>
+    <string name="frag3_employ_phone">Телефон:</string>
+</resources>
