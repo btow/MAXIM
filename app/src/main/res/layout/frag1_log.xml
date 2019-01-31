@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:minHeight="@dimen/min_btn_heigt"
             android:inputType="text"
-            android:text="test_user"
+            android:text=""
         />
 
     </android.support.design.widget.TextInputLayout>
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:minHeight="@dimen/min_btn_heigt"
             android:inputType="textPassword"
-            android:text="test_pass"
+            android:text=""
         />
 
     </android.support.design.widget.TextInputLayout>

@@ -42,6 +42,10 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     override fun showFirstFragment() {
+        window.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
+                    or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+        )
         supportFragmentManager.beginTransaction()
             .replace(R.id.rlContent, Frag1Log(), BuildConfig.FRAG1_LOG)
             .commit()
