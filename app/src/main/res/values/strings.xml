@@ -10,4 +10,7 @@
     <string name="frag3_employ_title">Title:</string>
     <string name="frag3_employ_email" translatable="false">Email:</string>
     <string name="frag3_employ_phone">Phone:</string>
+    <string name="main_menu_log_out">Log out</string>
+    <string name="frag3_dialer_not_installed">Dialer application not installed</string>
+    <string name="frag3_emailer_not_installed">The application to send e - mail is not installed</string>
 </resources>

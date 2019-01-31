@@ -8,13 +8,14 @@ import ru.bww.app.testtask.R
 import ru.bww.app.testtask.ThisApp
 import ru.bww.app.testtask.model.response_json.ResponseJSONHello
 import ru.bww.app.testtask.model.response_json.ResponseJSONStructure
+import ru.bww.app.testtask.presentation.presenter.frags.Frag1LogPresenter
+import ru.bww.app.testtask.presentation.presenter.frags.Frag2StrPresenter
 import ru.bww.app.testtask.presentation.presenter.frags.Frag3PerPresenter
 import ru.bww.app.testtask.ui.frags.Frag1Log
-import ru.bww.app.testtask.ui.frags.Frag2Str
 
 class AsyncTasksController {
 
-    class LoginToServer(val frag1Log: Frag1Log) : AsyncTask<String, Void, Response<ResponseJSONHello>>(){
+    class LoginToServer(val presenter: Frag1LogPresenter) : AsyncTask<String, Void, Response<ResponseJSONHello>>(){
 
         val LOG_TAG = "LoginToServer ->"
 
@@ -35,18 +36,18 @@ class AsyncTasksController {
                     when{
                         result.body()?.Success!! -> {
                             ThisApp.INSTANCE.saveLoginPassword(login, password)
-                            Log.i(LOG_TAG, frag1Log.getString(R.string.frag1_atc_login_is_success))
-                            frag1Log.onSuccess()
+                            Log.i(LOG_TAG, ThisApp.INSTANCE.getString(R.string.frag1_atc_login_is_success))
+                            presenter.onSuccess()
                         }
                         else -> {
                             Log.e(LOG_TAG, result.body()?.Message!!)
-                            (frag1Log as Frag1Log).onError(result.body()?.Message!!)
+                            (presenter as Frag1Log).onError(result.body()?.Message!!)
                         }
                     }
                 }
                 else -> {
                     Log.e(LOG_TAG, result?.code().toString())
-                    (frag1Log as Frag1Log).onError(result?.code().toString())
+                    (presenter as Frag1Log).onError(result?.code().toString())
                 }
             }
         }
@@ -57,7 +58,8 @@ class AsyncTasksController {
         }
     }
 
-    class CompanyStructure(val frag2Str: Frag2Str) : AsyncTask<Pair<String, String>, Void, Response<ResponseJSONStructure>>() {
+    class CompanyStructure(val presenter: Frag2StrPresenter)
+        : AsyncTask<Pair<String, String>, Void, Response<ResponseJSONStructure>>() {
 
         val LOG_TAG = "CompanyStructure ->"
 
@@ -70,11 +72,11 @@ class AsyncTasksController {
             super.onPostExecute(result)
             when{
                 result?.code() == 200 -> {
-                    frag2Str.onSuccess(result.body()!!)
+                    presenter.onSuccess(result.body()!!)
                 }
                 else -> {
                     Log.e(LOG_TAG, result?.code().toString())
-                    frag2Str.onError(result?.code().toString())
+                    presenter.onError(result?.code().toString())
                 }
             }
         }

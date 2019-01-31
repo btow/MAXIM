@@ -4,6 +4,6 @@ import com.arellomobile.mvp.MvpView
 
 interface MainView : MvpView {
     fun showToast(message: String)
-    fun logOut()
-    fun showFragment(name : String)
+    fun showFirstFragment()
+    fun showAnotherFragment(name: String, b: Boolean)
 }

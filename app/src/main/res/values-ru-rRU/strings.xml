@@ -10,4 +10,7 @@
     <string name="frag3_employ_name">ФИО:</string>
     <string name="frag3_employ_title">Должность:</string>
     <string name="frag3_employ_phone">Телефон:</string>
+    <string name="main_menu_log_out">Выйти</string>
+    <string name="frag3_emailer_not_installed">Приложение для отправки электронной почты не установлено</string>
+    <string name="frag3_dialer_not_installed">Приложение для набора номера не установлено</string>
 </resources>
