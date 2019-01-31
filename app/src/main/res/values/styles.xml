@@ -8,8 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.Qwetion" parent="AppTheme">
+    <style name="AppTheme.Question" parent="AppTheme">
         <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="AppTheme.Button" parent="AppTheme">

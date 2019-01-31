@@ -39,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/min_btn_heigt"
+            style="@style/AppTheme.Question"
             android:inputType="text"
             android:text=""
         />
@@ -61,6 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/min_btn_heigt"
+            style="@style/AppTheme.Question"
             android:inputType="textPassword"
             android:text=""
         />

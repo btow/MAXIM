@@ -37,8 +37,8 @@ class Frag3Per() : MvpAppCompatFragment(), Frag3PerView {
         tvEmployID.text = args?.getString("ID")
         tvEmployName.text = args?.getString("Name")
         tvEmployTitle.text = args?.getString("Title")
-        tvEmployPhone.text = args?.getString("Phone")
-        tvEmployEmail.text = args?.getString("Email")
+        tvEmployPhone.text = android.text.Html.fromHtml("<u>${args?.getString("Phone")}</u>")
+        tvEmployEmail.text =  android.text.Html.fromHtml("<u>${args?.getString("Email")}</u>")
         if(tvEmployID.text == null) tvEmployID.text = ""
         if(tvEmployName.text == null) tvEmployName.text = ""
         if(tvEmployTitle.text == null) tvEmployTitle.text = ""
